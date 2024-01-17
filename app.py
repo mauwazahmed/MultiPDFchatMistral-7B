@@ -61,7 +61,7 @@ def create_conversational_chain(vector_store):
 #     verbose=True,
 #     n_ctx=4096
 # )
-    llm = AutoModel.from_pretrained("TheBloke/Mistral-7B-Instruct-v0.1-GGUF")
+    llm = AutoModel.from_pretrained("TheBloke/Mistral-7B-Instruct-v0.1-GGUF/mistral-7b-instruct-v0.1.Q4_K_M.gguf")
     
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 

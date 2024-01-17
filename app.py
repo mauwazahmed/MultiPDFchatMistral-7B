@@ -9,6 +9,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain_community.document_loaders import PyPDFLoader
 import os
 import tempfile
+from transformers import AutoModel
 
 
 
@@ -52,14 +53,15 @@ def display_chat_history(chain):
 
 def create_conversational_chain(vector_store):
     # Create llm
-    llm = LlamaCpp(
-    streaming = True,
-    model_path="mistral-7b-instruct-v0.1.Q4_K_M.gguf",
-    temperature=0.75,
-    top_p=1, 
-    verbose=True,
-    n_ctx=4096
-)
+#     llm = LlamaCpp(
+#     streaming = True,
+#     model_path="mistral-7b-instruct-v0.1.Q4_K_M.gguf",
+#     temperature=0.75,
+#     top_p=1, 
+#     verbose=True,
+#     n_ctx=4096
+# )
+    llm = AutoModel.from_pretrained("TheBloke/Mistral-7B-Instruct-v0.1-GGUF")
     
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 

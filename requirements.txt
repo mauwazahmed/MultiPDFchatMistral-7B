@@ -3,6 +3,7 @@ langchain-community
 torch
 accelerate
 sentence_transformers
+transformers
 streamlit_chat
 streamlit
 faiss-cpu
